@@ -26,7 +26,7 @@ public class StringBasics {
         // TODO: Fix this method
 
         if (text.length() > maxLength) {
-            text.substring(0, maxLength);
+            text = text.substring(0, maxLength);
         }
         return text;
     }
@@ -40,8 +40,8 @@ public class StringBasics {
      */
     public boolean parseYesOrNo(String text) {
         // FIXME: this seems to always return false, even when the `text` is "yes"
-
-        if (text.toLowerCase() == "yes") {
+        String teksti = text.toLowerCase();
+        if (teksti .equals("yes")) {
             return true;
         }
         return false;
@@ -56,13 +56,32 @@ public class StringBasics {
      * as a string.
      *
      * See more at https://en.wikipedia.org/wiki/Fizz_buzz
-     *
+     * 
      * @param number The input number to be evaluated.
      * @return "fizz", "buzz", "fizzbuzz" or the given number as a string.
      */
     public String getFizzBuzz(int number) {
-        return "fizzbuzz"; // TODO: implement this method
+        
+        if ((number % 3 == 0) && (number % 5 == 0)){
+            
+            return "fizzbuzz";
+        }
+       else if ((number % 3 > 0) && (number % 5 == 0)){
+        
+            return "buzz";
+        }
+      else  if ((number % 3 == 0) && (number % 5 > 0)){
+        
+            return "fizz";
+        }
+       
+        // TODO: implement this method
+    
+return String.valueOf(number);
     }
+
+    
+    
 
     /**
      * Returns a new string with the given text centered inside. Spaces are added to
@@ -80,7 +99,25 @@ public class StringBasics {
      * @return The text centered in a string of the given width: " Java ".
      */
     public String center(String text, int width) {
-        return null; // TODO: implement this method
+        String teksti = "";
+        int pituus = width - text.length();
+        int pupu = pituus / 2;
+        if (text.length() >= width){
+            teksti = text;
+            return teksti;
+        }
+        else if (pituus % 2 != 0){
+                teksti = " ".repeat(pupu) + text + " ".repeat(pupu) + " ";
+                return teksti; 
+                }
+  
+        
+        else{
+                    
+                    teksti = " ".repeat(pupu) + text + " ".repeat(pupu);
+                    return teksti; 
+                }
+                
     }
 
     /**
