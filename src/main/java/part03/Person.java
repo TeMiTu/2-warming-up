@@ -11,14 +11,19 @@ package part03;
  * as expected. You can also write a main method to test your implementations.
  */
 public class Person {
-
+    
     /**
      * Constructs a new `Person` object with the specified name and age.
      *
      * @param name The name of the person.
      * @param age  The age of the person.
      */
+    private String name;
+    private int age;
+
     public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
         // TODO: implement this constructor
     }
 
@@ -28,7 +33,7 @@ public class Person {
      * @return The age of the person as an integer.
      */
     public int getAge() {
-        return 0; // TODO: implement this method
+     return age; // TODO: implement this method
     }
 
     /**
@@ -37,7 +42,7 @@ public class Person {
      * @return The name of the person as a string.
      */
     public String getName() {
-        return null; // TODO: implement this method
+        return name; // TODO: implement this method
     }
 
     /**
