@@ -1,5 +1,6 @@
 package part03;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,8 +24,13 @@ public class ObjectExercise {
      * @return A list of names of the people in the list.
      */
     public List<String> getNames(List<Person> people) {
+        List<String> nimet = new ArrayList<>();
+        for (Person person : people){
+            nimet.add(person.getName());
+        }
+
         // hint: you can call the getName() method of each Person on the list
-        return null;
+        return nimet;
     }
 
     /**
@@ -38,9 +44,22 @@ public class ObjectExercise {
      * @return The oldest person in the list.
      */
     public Person getOldest(List<Person> people) {
+
+        if (people.isEmpty()){
+            return null;
+        }
+
+        Person vanhin = people.get(0);
+
+
+        for (Person person : people){
+            if (person.getAge() > vanhin.getAge()){
+                vanhin = person;
+            }
+        }
         // hint: you can call the getAge() method of each Person on the list and compare
         // the ages to find the oldest person
-        return null;
+        return vanhin;
     }
 
     /**
@@ -65,7 +84,26 @@ public class ObjectExercise {
      * @return A formatted string representing the names of people in the list.
      */
     public String generateNamesString(List<Person> people) {
+
+        if (people.isEmpty()){
+            return "";
+        }
+        else if (people.size() == 1){
+            return people.get(0).getName();
+
+        }
+        else if (people.size() == 2){
+            return people.get(0).getName() + " and " + people.get(1).getName();
+        }
+        else if (people.size() == 3){
+            return people.get(0).getName() + ", " + people.get(1).getName() + " and " + people.get(2).getName();
+        }
+        
+            return people.get(0).getName() + ", " + people.get(1).getName() + " and " + (people.size() - 2) + " others";
+        
+
+
         // TODO: implement this method
-        return null;
+        
     }
 }
